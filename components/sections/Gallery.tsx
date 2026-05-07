@@ -15,8 +15,8 @@ const images = [
     tall: false,
   },
   {
-    src: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80",
-    alt: "Električni razvodnik — modernizacija osigurača",
+    src: "https://images.unsplash.com/photo-1682345262055-8f95f3c513ea?w=600&q=80",
+    alt: "Elektroinstalater s kabelima — Elektro Artis Zagreb",
     tall: false,
   },
   {
