@@ -11,7 +11,6 @@ import WhyUs from "@/components/sections/WhyUs";
 import Gallery from "@/components/sections/Gallery";
 import Reviews from "@/components/sections/Reviews";
 import CtaBanner from "@/components/sections/CtaBanner";
-import ContactSection from "@/components/sections/ContactSection";
 
 export const metadata: Metadata = {
   title: "Elektro Artis | Električar | Hitne intervencije Zagreb",
@@ -42,7 +41,6 @@ export default function Home() {
         <Gallery />
         <Reviews />
         <CtaBanner />
-        <ContactSection />
       </main>
       <Footer />
       <WhatsAppButton />
