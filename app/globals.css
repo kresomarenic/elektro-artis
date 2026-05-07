@@ -1,26 +1,69 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand colors */
+  --color-blue: #1565c0;
+  --color-blue-dark: #0d47a1;
+  --color-blue-light: #e3f0ff;
+  --color-blue-xlight: #f0f7ff;
+  --color-dark: #0d1b2a;
+  --color-text: #1a2332;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-surface: #f8fafc;
+
+  /* Fonts */
+  --font-heading: var(--font-dm-sans);
+  --font-body: var(--font-inter);
+
+  /* Animations */
+  --animate-wa-pulse: wa-pulse 2.5s infinite;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+  70%  { box-shadow: 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+/* Electric wire current-flow animation */
+@keyframes current-flow {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -1020; }
+}
+.wire-current-1 { animation: current-flow 6s linear infinite; }
+.wire-current-2 { animation: current-flow 5s linear 1.2s infinite; }
+.wire-current-3 { animation: current-flow 7s linear 2.8s infinite; }
+.wire-current-4 { animation: current-flow 5.5s linear 0.6s infinite; }
+.wire-current-5 { animation: current-flow 6s linear 3.5s infinite; }
+.wire-current-6 { animation: current-flow 5s linear 1.8s infinite; }
+.wire-current-7 { animation: current-flow 4.5s linear 4s infinite; }
+.wire-current-8 { animation: current-flow 7s linear 0.4s infinite; }
+
+/* Dot grid background utility */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(21, 101, 192, 0.12) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  color: #1a2332;
+  background: #ffffff;
 }
