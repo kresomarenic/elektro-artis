@@ -22,9 +22,9 @@ export default function PhoneButton({
 
   const variantClasses = {
     primary:
-      "bg-blue text-white hover:bg-blue-dark font-semibold rounded-lg shadow-sm hover:shadow-md transition-all duration-200",
+      "bg-blue text-white hover:bg-blue-dark font-semibold rounded-lg shadow-sm hover:shadow-md active:scale-[0.97] transition-all duration-200",
     outline:
-      "border-2 border-blue text-blue hover:bg-blue hover:text-white font-semibold rounded-lg transition-all duration-200",
+      "border-2 border-blue text-blue hover:bg-blue hover:text-white font-semibold rounded-lg active:scale-[0.97] transition-all duration-200",
     ghost:
       "text-blue hover:text-blue-dark font-semibold transition-colors duration-200",
   };

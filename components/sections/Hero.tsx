@@ -278,7 +278,7 @@ export default function Hero() {
           >
             <a
               href={SITE.phone.tel}
-              className="inline-flex items-center gap-2 bg-blue hover:bg-blue-dark text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-base"
+              className="inline-flex items-center gap-2 bg-blue hover:bg-blue-dark text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.97] transition-all duration-200 text-base"
             >
               <Phone className="w-5 h-5" />
               Nazovi odmah
@@ -287,7 +287,7 @@ export default function Hero() {
               href={SITE.phone.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-base"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb355] text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:shadow-xl active:scale-[0.97] transition-all duration-200 text-base"
             >
               <MessageCircle className="w-5 h-5" />
               WhatsApp

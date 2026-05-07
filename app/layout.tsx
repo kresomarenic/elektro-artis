@@ -3,6 +3,7 @@ import { DM_Sans, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SITE } from "@/lib/constants/site";
+import Providers from "@/components/providers";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -61,7 +62,7 @@ export default function RootLayout({
       className={`${dmSans.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}>
-        {children}
+        <Providers>{children}</Providers>
       </body>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${SITE.ga4}`}

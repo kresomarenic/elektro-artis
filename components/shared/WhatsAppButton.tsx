@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Kontaktirajte nas na WhatsAppu"
-      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg animate-[wa-pulse_2.5s_infinite] hover:scale-110 transition-transform duration-200"
+      className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg animate-wa-pulse hover:scale-110 active:scale-95 transition-transform duration-200"
     >
       <svg
         viewBox="0 0 32 32"

@@ -37,16 +37,16 @@ export default function CtaBanner() {
               href={SITE.phone.whatsapp}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-xl active:scale-[0.97] transition-all duration-200"
             >
               <MessageCircle className="w-5 h-5" />
               Piši na WhatsApp
             </a>
             <a
               href="/kontakt"
-              className="inline-flex items-center gap-2 bg-blue-dark hover:bg-dark text-white font-semibold px-6 py-3 rounded-xl transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-blue-dark hover:bg-dark text-white font-semibold px-6 py-3 rounded-xl active:scale-[0.97] transition-all duration-200"
             >
-              Pošalji upit
+              Kontakt informacije
             </a>
           </div>
         </AnimatedSection>
