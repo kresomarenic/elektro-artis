@@ -28,7 +28,7 @@ Business: 24/7 emergency interventions, installations, maintenance.
 1. **SEO URLs are sacred:** `/usluge`, `/hitne-intervencije`, `/kontakt` must never be renamed or restructured.
 2. **Yellow only in logo ring** — no yellow anywhere else in the UI.
 3. **No dark sections** — footer (`bg-blue-dark`) is the only exception; everything else must be light or blue-family.
-4. **Don't change the logo** without an explicit user instruction and a provided source file. `components/shared/Logo.tsx` is a placeholder ("E + lightning bolt"). Real logo = lightbulb + power plug icon with custom decorative font text. When user provides file: save to `/public/`, update `Logo.tsx` to `<img>` tag with auto-width sizing.
+4. **Don't recreate the logo as SVG/HTML.** The real brand mark lives at `public/logo.png` (245×65, transparent, white wordmark + tagline baked in). `components/shared/Logo.tsx` renders it via `next/image` and is scaled by the `size` prop. If a variant is needed for a non-blue background, pull a new file — don't draw one from memory or descriptions.
 5. **Animations must be visible** — base traces ~18% opacity, animated elements ~45–65% opacity with glow filter. Don't default to ultra-subtle.
 6. **User owns the copy** — don't propose alternate wording for trust badges or CTAs without being asked.
 7. **WhatsApp buttons:** use `#25D366` green throughout.
@@ -42,7 +42,8 @@ Business: 24/7 emergency interventions, installations, maintenance.
 - `components/layout/Header.tsx` — blue header, scroll-aware, Framer Motion
 - `components/layout/Footer.tsx` — blue-dark footer
 - `components/layout/MobileMenu.tsx` — mobile nav
-- `components/shared/Logo.tsx` — PLACEHOLDER, needs real logo from user
+- `components/shared/Logo.tsx` — single `<Image>` of `public/logo.png`, scales via `size` prop (sm/md/lg)
+- `public/logo.png` — real brand asset (yellow circle + dark-navy plug + lightning bolt + white "ELEKTRO ARTIS" wordmark + tagline)
 - `components/shared/PhoneButton.tsx` — reusable phone CTA (min-h-[44px] on all sizes)
 - `components/shared/WhatsAppButton.tsx` — fixed floating WhatsApp button (animate-wa-pulse)
 - `components/sections/Hero.tsx` — PCB circuit animation, trust badges
@@ -61,7 +62,6 @@ Hero, Stats, Services, ServicesList, Process, WhyUs, Gallery, Reviews, CtaBanner
 - Touch targets min 44px (PhoneButton all sizes)
 
 ## Pending Work
-- **Logo replacement:** User must provide the logo file. Save to `/public/`, update `Logo.tsx` to `<img>` tag. Do NOT attempt to recreate from description or memory.
 - **Vercel domain:** Add `elektro-artis.hr` in Vercel → Settings → Domains after initial deploy.
 
 ## Next.js 16 Breaking Changes (critical)
