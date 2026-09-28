@@ -89,7 +89,12 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <p>&copy; {year} {SITE.name} d.o.o. &middot; OIB: {SITE.oib}</p>
-          <p>Sva prava pridržana.</p>
+          <div className="flex items-center gap-4">
+            <Link href="/cjenik" className="hover:text-white transition-colors">
+              Cjenik usluga
+            </Link>
+            <p>Sva prava pridržana.</p>
+          </div>
         </div>
       </div>
     </footer>

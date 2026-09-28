@@ -3,8 +3,8 @@ export const SITE = {
   url: "https://elektro-artis.hr",
   phone: {
     display: "098/738-628",
-    tel: "tel:+385987386288",
-    whatsapp: "https://wa.me/385987386288",
+    tel: "tel:+38598738628",
+    whatsapp: "https://wa.me/38598738628",
   },
   email: "elektro.artis@gmail.com",
   address: {

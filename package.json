@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/cjenik.mjs check",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "cjenik:check": "node scripts/cjenik.mjs check",
+    "cjenik:objavi": "node scripts/cjenik.mjs objavi"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

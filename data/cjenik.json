@@ -1,0 +1,25 @@
+{
+  "objekt": {
+    "oblik": "servis",
+    "adresa": "Alexandera von Humboldta 8 Zagreb",
+    "oznaka": "01"
+  },
+  "stavke": [
+    { "naziv": "Sat rada", "obracun": "po satu, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Izlazak na teren", "obracun": "po dolasku, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Dodatak - hitna intervencija", "obracun": "po intervenciji, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Dodatak - noćni rad", "obracun": "po intervenciji, od", "cijena": 100, "sidrena_cijena": 100, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Dodatak - vikend i praznici", "obracun": "po intervenciji, od", "cijena": 100, "sidrena_cijena": 100, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Zamjena rasvjetnog tijela", "obracun": "po komadu, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Zamjena utičnice / prekidača", "obracun": "po komadu, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Zamjena osiguračke kutije", "obracun": "po komadu, od", "cijena": 150, "sidrena_cijena": 150, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Premještaj brojila", "obracun": "po brojilu, od", "cijena": 150, "sidrena_cijena": 150, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Atest električnih instalacija (do 50 m2)", "obracun": "paušal, od", "cijena": 180, "sidrena_cijena": 180, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Atest električnih instalacija (svakih dodatnih 10 m2)", "obracun": "po 10 m2, od", "cijena": 50, "sidrena_cijena": 50, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Ugradnja podnog grijanja", "obracun": "po m2, od", "cijena": 150, "sidrena_cijena": 150, "sidrena_datum": "2026-09-10" },
+    { "naziv": "Ugradnja videonadzora", "obracun": "po kameri, od", "cijena": 600, "sidrena_cijena": 600, "sidrena_datum": "2026-09-10" }
+  ],
+  "izdanja": [
+    { "datoteka": "servis_Alexandera von Humboldta 8 Zagreb_01_001_01.10.2026_07-45.csv", "vrijedi_od": "2026-10-01T07:45" }
+  ]
+}

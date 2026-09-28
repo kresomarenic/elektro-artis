@@ -33,6 +33,7 @@ Business: 24/7 emergency interventions, installations, maintenance.
 6. **User owns the copy** — don't propose alternate wording for trust badges or CTAs without being asked.
 7. **WhatsApp buttons:** use `#25D366` green throughout.
 8. **No contact form** — removed by design. `/kontakt` shows phone, WhatsApp, address, hours, and map only.
+9. **No prices outside `/cjenik`** (NN 101/2026, in force 1. 10. 2026.) — any price shown elsewhere must carry the 10. 9. 2026. anchor price next to it. Keep the rest of the site price-free. "Besplatno" in copy refers to phone/WhatsApp consultation only.
 
 ## Key Files
 - `app/globals.css` — design tokens, animation keyframes, reduced-motion, touch-action, focus-visible
@@ -61,7 +62,14 @@ Hero, Stats, Services, ServicesList, Process, WhyUs, Gallery, Reviews, CtaBanner
 - `active:scale-[0.97]` on all CTAs — press feedback
 - Touch targets min 44px (PhoneButton all sizes)
 
+## Price List (Cjenik) — legal requirement, NN 101/2026
+- Source of truth: `data/cjenik.json`. Never edit CSVs in `public/cjenici/` by hand, never delete them (archive must stay public ≥30 days).
+- `pnpm cjenik:objavi --od YYYY-MM-DDTHH:mm` publishes a new CSV (next storage number) when prices change; it must be live by 08:00 on the effective day. `prebuild` runs `cjenik:check`, which fails the build on drift or a changed anchor price.
+- Anchor price (`sidrena_cijena`) never changes; a service added later gets its own `sidrena_datum`.
+- `/cjenici/*` is served as `text/csv; charset=utf-8` (next.config.ts). No bot protection or auth may cover it.
+
 ## Pending Work
+- **Domain switch (before 1. 10. 2026.):** old site is Joomla/Apache at 178.218.165.203, canonical `www.elektro-artis.hr`. In Vercel add both apex and `www` (redirect www → apex), change only A/CNAME records, keep Deployment Protection and bot challenge off for production. If the switch slips past 1. 10., put the CSV on the old server at the same `/cjenici/...` path.
 - **Vercel domain:** Add `elektro-artis.hr` in Vercel → Settings → Domains after initial deploy.
 
 ## Next.js 16 Breaking Changes (critical)

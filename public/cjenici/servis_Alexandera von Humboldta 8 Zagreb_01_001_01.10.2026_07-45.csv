@@ -1,0 +1,14 @@
+naziv_usluge,obracun,maloprodajna_cijena_eur,posebni_oblik_prodaje,naziv_posebnog_oblika_prodaje,sidrena_cijena_eur_10_09_2026
+"Sat rada","po satu, od",50.00,NE,,50.00
+"Izlazak na teren","po dolasku, od",50.00,NE,,50.00
+"Dodatak - hitna intervencija","po intervenciji, od",50.00,NE,,50.00
+"Dodatak - noćni rad","po intervenciji, od",100.00,NE,,100.00
+"Dodatak - vikend i praznici","po intervenciji, od",100.00,NE,,100.00
+"Zamjena rasvjetnog tijela","po komadu, od",50.00,NE,,50.00
+"Zamjena utičnice / prekidača","po komadu, od",50.00,NE,,50.00
+"Zamjena osiguračke kutije","po komadu, od",150.00,NE,,150.00
+"Premještaj brojila","po brojilu, od",150.00,NE,,150.00
+"Atest električnih instalacija (do 50 m2)","paušal, od",180.00,NE,,180.00
+"Atest električnih instalacija (svakih dodatnih 10 m2)","po 10 m2, od",50.00,NE,,50.00
+"Ugradnja podnog grijanja","po m2, od",150.00,NE,,150.00
+"Ugradnja videonadzora","po kameri, od",600.00,NE,,600.00
