@@ -15,7 +15,18 @@ Business: 24/7 emergency interventions, installations, maintenance.
 ## Git & Deployment
 - **GitHub:** `git@github-private:kresomarenic/elektro-artis.git` (SSH alias `github-private` → personal key `~/.ssh/id_ed25519_kresomarenic`)
 - **Git identity (local):** `kresomarenic` / `kresomarenic@yahoo.com` — already set as local config, do not change
-- **Vercel:** deploying from GitHub repo `kresomarenic/elektro-artis`
+- **Vercel:** project `elektro-artis`, production deploys automatically from `main` of `kresomarenic/elektro-artis`
+- **Merge flow:** fast-forward push to `main` over `github-private` (`git push origin HEAD:main`) — linear history, author `kresomarenic` only. Do NOT open/merge PRs with `gh`: it is logged in as the work account (`kresimir-marenic`), which would put the wrong identity on the PR/merge.
+
+## Production & DNS (live since 28. 9. 2026.)
+- **Live:** `https://elektro-artis.hr` → Vercel. `www.elektro-artis.hr` → 308 → apex (apex is canonical; matches `SITE.url`, sitemap, canonical tags).
+- **Domain:** free `.hr` domain of ELEKTRO ARTIS d.o.o. at CARNET, managed by the owner directly (registrar.carnet.hr → magic link to the registrant e-mail). Nameservers changed there.
+- **DNS:** Cloudflare (owner's account), NS `bowen.ns.cloudflare.com` / `jessica.ns.cloudflare.com`. Records, both **DNS only (grey cloud)**:
+  - `A @ 216.198.79.1`
+  - `CNAME www 262653c6d90fb957.vercel-dns-017.com`
+- **Keep Cloudflare proxy OFF** — Vercel issues the SSL certs, and the price-list CSV must stay fetchable by bots (NN 101/2026). DNSSEC is off; if enabled in Cloudflare, add the DS record at CARNET.
+- **Vercel Deployment Protection:** Standard Protection (previews only) — production domains are public. Don't change.
+- No e-mail on the domain (no MX). Old Joomla site on Studio4Web hosting (178.218.165.203) is no longer served.
 
 ## Brand Colors (defined in app/globals.css)
 - `--color-blue: #1565c0` — primary brand blue
@@ -49,7 +60,11 @@ Business: 24/7 emergency interventions, installations, maintenance.
 - `components/shared/WhatsAppButton.tsx` — fixed floating WhatsApp button (animate-wa-pulse)
 - `components/sections/Hero.tsx` — PCB circuit animation, trust badges
 - `components/sections/EmergencyHero.tsx` — emergency page hero
-- `lib/constants/site.ts` — phone, email, address, OIB, GA4 ID
+- `lib/constants/site.ts` — phone, email, address, OIB, GA4 ID (phone: 098 738 628 → `+38598738628`)
+- `app/cjenik/page.tsx` — legal price list page (linked only from footer bottom bar)
+- `data/cjenik.json` — price list source of truth (13 services + published issues)
+- `scripts/cjenik.mjs` — CSV generate/check/publish
+- `public/cjenici/` — published price-list CSVs (archive, never delete)
 
 ## Component Sections
 Hero, Stats, Services, ServicesList, Process, WhyUs, Gallery, Reviews, CtaBanner, Faq, EmergencyHero
@@ -69,8 +84,9 @@ Hero, Stats, Services, ServicesList, Process, WhyUs, Gallery, Reviews, CtaBanner
 - `/cjenici/*` is served as `text/csv; charset=utf-8` (next.config.ts). No bot protection or auth may cover it.
 
 ## Pending Work
-- **Domain switch (before 1. 10. 2026.):** old site is Joomla/Apache at 178.218.165.203, canonical `www.elektro-artis.hr`. In Vercel add both apex and `www` (redirect www → apex), change only A/CNAME records, keep Deployment Protection and bot challenge off for production. If the switch slips past 1. 10., put the CSV on the old server at the same `/cjenici/...` path.
-- **Vercel domain:** Add `elektro-artis.hr` in Vercel → Settings → Domains after initial deploy.
+- **CARNET:** domain holder status is "Neverificiran" — owner must submit the verification document.
+- **Google Search Console:** add a Domain property (TXT record in Cloudflare) and submit `https://elektro-artis.hr/sitemap.xml`.
+- **Studio4Web:** back up the old site if wanted, cancel the hosting, and rotate the old FTP password (it was sent by e-mail in plain text).
 
 ## Next.js 16 Breaking Changes (critical)
 - `params` and `searchParams` props in pages/layouts are now `Promise`-based — must be awaited.
