@@ -17,4 +17,5 @@ export const SITE = {
   oib: "38168802307",
   hours: "0–24h, 365 dana",
   ga4: "G-MGVEVVQX6Z",
+  builtBy: { name: "ReadyBIT", url: "https://www.readybit.hr/" },
 } as const;

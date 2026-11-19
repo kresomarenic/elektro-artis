@@ -88,7 +88,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
-          <p>&copy; {year} {SITE.name} d.o.o. &middot; OIB: {SITE.oib}</p>
+          <p>
+            &copy; {year} {SITE.name} d.o.o. &middot; OIB: {SITE.oib} | Web by{" "}
+            <a
+              href={SITE.builtBy.url}
+              target="_blank"
+              rel="noopener nofollow"
+              className="underline underline-offset-4 hover:text-white transition-colors"
+            >
+              {SITE.builtBy.name}
+            </a>
+          </p>
           <div className="flex items-center gap-4">
             <Link href="/cjenik" className="hover:text-white transition-colors">
               Cjenik usluga
