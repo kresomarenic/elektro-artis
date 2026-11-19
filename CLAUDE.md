@@ -24,7 +24,7 @@ Business: 24/7 emergency interventions, installations, maintenance.
 - **DNS:** Cloudflare (owner's account), NS `bowen.ns.cloudflare.com` / `jessica.ns.cloudflare.com`. Records, both **DNS only (grey cloud)**:
   - `A @ 216.198.79.1`
   - `CNAME www 262653c6d90fb957.vercel-dns-017.com`
-- **Keep Cloudflare proxy OFF** — Vercel issues the SSL certs, and the price-list CSV must stay fetchable by bots (NN 101/2026). DNSSEC is off; if enabled in Cloudflare, add the DS record at CARNET.
+- **Keep Cloudflare proxy OFF** — Vercel issues the SSL certs, and the price-list CSV must stay fetchable by bots (NN 132/2026). DNSSEC is off; if enabled in Cloudflare, add the DS record at CARNET.
 - **Vercel Deployment Protection:** Standard Protection (previews only) — production domains are public. Don't change.
 - No e-mail on the domain (no MX). Old Joomla site on Studio4Web hosting (178.218.165.203) is no longer served.
 
@@ -44,7 +44,7 @@ Business: 24/7 emergency interventions, installations, maintenance.
 6. **User owns the copy** — don't propose alternate wording for trust badges or CTAs without being asked.
 7. **WhatsApp buttons:** use `#25D366` green throughout.
 8. **No contact form** — removed by design. `/kontakt` shows phone, WhatsApp, address, hours, and map only.
-9. **No prices outside `/cjenik`** (NN 101/2026, in force 1. 10. 2026.) — any price shown elsewhere must carry the 10. 9. 2026. anchor price next to it. Keep the rest of the site price-free. "Besplatno" in copy refers to phone/WhatsApp consultation only.
+9. **No prices outside `/cjenik`** (NN 132/2026, in force 17. 11. 2026.) — any price shown elsewhere must carry the 10. 9. 2026. base price next to it (mandatory in print/TV ads). Keep the rest of the site price-free. "Besplatno" in copy refers to phone/WhatsApp consultation only.
 
 ## Key Files
 - `app/globals.css` — design tokens, animation keyframes, reduced-motion, touch-action, focus-visible
@@ -77,11 +77,17 @@ Hero, Stats, Services, ServicesList, Process, WhyUs, Gallery, Reviews, CtaBanner
 - `active:scale-[0.97]` on all CTAs — press feedback
 - Touch targets min 44px (PhoneButton all sizes)
 
-## Price List (Cjenik) — legal requirement, NN 101/2026
-- Source of truth: `data/cjenik.json`. Never edit CSVs in `public/cjenici/` by hand, never delete them (archive must stay public ≥30 days).
-- `pnpm cjenik:objavi --od YYYY-MM-DDTHH:mm` publishes a new CSV (next storage number) when prices change; it must be live by 08:00 on the effective day. `prebuild` runs `cjenik:check`, which fails the build on drift or a changed anchor price.
-- Anchor price (`sidrena_cijena`) never changes; a service added later gets its own `sidrena_datum`.
-- `/cjenici/*` is served as `text/csv; charset=utf-8` (next.config.ts). No bot protection or auth may cover it.
+## Price List (Cjenik) — legal requirement, NN 132/2026 (in force 17. 11. 2026.)
+- Legal basis: **Pravilnik o isticanju bazne cijene proizvoda** and **Pravilnik o načinu objave cjenika proizvoda** (both NN 132/2026, Zakon o zaštiti potrošača čl. 7). The Government decisions from NN 101/2026 and 110/2026 ceased to apply on 17. 11. 2026. (NN 132/2026, acts 1579–1580) — don't cite them anymore.
+- Base price ("bazna cijena", formerly "sidrena/dodatna") = the price the service had on 10. 9. 2026.; a service added later uses the price on the day it was first offered. Shown next to the retail price on the same list.
+- Source of truth: `data/cjenik.json`. Never edit CSVs in `public/cjenici/` by hand, never delete them (law: replaced list must stay public ≥15 days; we keep all).
+- CSV format (čl. 3 st. 3–4, čl. 6): UTF-8, `;` separator, columns in this order: naziv usluge; maloprodajna cijena; posebni oblik prodaje (DA/NE); bazna cijena. The billing unit is part of the name, e.g. "Sat rada (po satu, od)".
+- File name: `OIB_ZA_SVA_PRODAJNA_MJESTA_usluge_<broj pohrane>_<GGGGMMDD_SSMM>.csv`. Broj pohrane = sequence number of new-format issues (Ministry: "redni broj generirane datoteke"); the issue from 1. 10. 2026. is marked `stari_format` and doesn't count.
+- Stable URL `/cjenici/cjenik-usluga.csv` 307-redirects to the current file (čl. 6 st. 2 "ista URL adresa"); generated in next.config.ts from `data/cjenik.json`.
+- `pnpm cjenik:objavi --od YYYY-MM-DDTHH:mm` publishes a new CSV when prices change; it must be live by **11:00** on the day of the change. `prebuild` runs `cjenik:check`, which fails the build on drift or a changed base price.
+- Base price (`sidrena_cijena` in the JSON) never changes; a service added later gets its own `sidrena_datum`.
+- `/cjenici/*` is served as `text/csv; charset=utf-8` (next.config.ts). No bot protection or auth may cover it (čl. 5: automated collection must be possible).
+- `.gitattributes` keeps `public/cjenici/*.csv` LF on every OS; the check compares bytes.
 
 ## Pending Work
 - **CARNET:** domain holder status is "Neverificiran" — owner must submit the verification document.

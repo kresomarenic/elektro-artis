@@ -1,0 +1,2 @@
+# Price-list CSVs are compared byte-for-byte by scripts/cjenik.mjs; keep LF on every OS.
+public/cjenici/*.csv text eol=lf
